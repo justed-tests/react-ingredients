@@ -3,7 +3,8 @@ let List = require('./List.jsx')
 
 let ListManager = React.createClass({
   propTypes: {
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    headingColor: React.PropTypes.string
   },
   getInitialState: function () {
     return {items: [], newItemText: ''}
@@ -24,10 +25,16 @@ let ListManager = React.createClass({
       marginTop: 10
     }
 
+    let headingStyle = {}
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor
+    }
+
     return (
       <div style={divStyle} className="col-sm-4">
         <div className="panel panel-primary">
-          <div className="panel-heading">
+          <div style={headingStyle} className="panel-heading">
             <h3>{this.props.title}</h3>
           </div>
           <div className="panel-body">
