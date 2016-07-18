@@ -4,4 +4,4 @@ let ListManager = require('./components/ListManager.jsx')
 
 let container = document.querySelector('#ingredients')
 
-ReactDOM.render(<ListManager title={'Lalalalal'} />, container)
+ReactDOM.render(<ListManager title={'Ingredients'} />, container)
