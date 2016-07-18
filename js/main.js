@@ -20477,7 +20477,8 @@ let ListManager = React.createClass({
   displayName: 'ListManager',
 
   propTypes: {
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    headingColor: React.PropTypes.string
   },
   getInitialState: function () {
     return { items: [], newItemText: '' };
@@ -20498,6 +20499,12 @@ let ListManager = React.createClass({
       marginTop: 10
     };
 
+    let headingStyle = {};
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor;
+    }
+
     return React.createElement(
       'div',
       { style: divStyle, className: 'col-sm-4' },
@@ -20506,7 +20513,7 @@ let ListManager = React.createClass({
         { className: 'panel panel-primary' },
         React.createElement(
           'div',
-          { className: 'panel-heading' },
+          { style: headingStyle, className: 'panel-heading' },
           React.createElement(
             'h3',
             null,
@@ -20552,8 +20559,8 @@ let React = require('react');
 let ReactDOM = require('react-dom');
 let ListManager = require('./components/ListManager.jsx');
 
-let container = document.querySelector('#ingredients');
-
-ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), container);
+ReactDOM.render(React.createElement(ListManager, { title: 'One' }), document.getElementById('one'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Two' }), document.getElementById('two'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Three', headingColor: '#b31217' }), document.getElementById('three'));
 
 },{"./components/ListManager.jsx":174,"react":170,"react-dom":1}]},{},[175]);
